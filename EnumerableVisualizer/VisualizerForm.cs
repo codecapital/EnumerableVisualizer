@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -32,7 +33,29 @@ namespace CodeCapital.EnumerableVisualizer
 
         private void UpdateFilteredCount(int count) => CountLabel.Text = $"Count = {count} from {_totalCount}";
 
-        private void ExportToExcelButton_Click(object sender, System.EventArgs e) => MessageBox.Show("Exporting to excel");
+        private void ExportToExcelButton_Click(object sender, System.EventArgs e)
+        {
+            var myDocumentsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            var saveDialog = new SaveFileDialog
+            {
+                InitialDirectory = myDocumentsFolderPath,
+                RestoreDirectory = true,
+                Filter = "Excel files (*.xlsx)|*.xlsx",
+                Title = "Export Excel File To"
+            };
+            //saveDlg.FilterIndex = 0;
+
+            if (saveDialog.ShowDialog() != DialogResult.OK) return;
+
+            var path = saveDialog.FileName;
+
+            using (var workbook = new XLWorkbook())
+            {
+                workbook.Worksheets.Add(_dataTable, "DataTable");
+                workbook.SaveAs(saveDialog.FileName);
+            }
+        }
 
         private void VisualizerGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -145,10 +168,7 @@ namespace CodeCapital.EnumerableVisualizer
             return filterBuilder.ToString();
         }
 
-        private void ClearSearchButton_Click(object sender, System.EventArgs e)
-        {
-            ClearSearchAndReload();
-        }
+        private void ClearSearchButton_Click(object sender, System.EventArgs e) => ClearSearchAndReload();
 
         private void ClearSearchAndReload()
         {
@@ -156,9 +176,6 @@ namespace CodeCapital.EnumerableVisualizer
             VisualizerGridView.DataSource = _dataTable;
         }
 
-        private void ResetButton_Click(object sender, EventArgs e)
-        {
-            ClearSearchAndReload();
-        }
+        private void ResetButton_Click(object sender, EventArgs e) => ClearSearchAndReload();
     }
 }

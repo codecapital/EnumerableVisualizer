@@ -1,6 +1,7 @@
 ﻿using CodeCapital.EnumerableVisualizer;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -8,12 +9,14 @@ using System.Dynamic;
 using System.Windows.Forms;
 
 [assembly: DebuggerVisualizer(typeof(DebuggerVisualizer), typeof(EnumerableObjectSource), Target = typeof(List<>), Description = DebuggerVisualizer.Name)]
+[assembly: DebuggerVisualizer(typeof(DebuggerVisualizer), typeof(EnumerableObjectSource), Target = typeof(Array), Description = DebuggerVisualizer.Name)]
+[assembly: DebuggerVisualizer(typeof(DebuggerVisualizer), typeof(EnumerableObjectSource), Target = typeof(ArrayList), Description = DebuggerVisualizer.Name)]
 namespace CodeCapital.EnumerableVisualizer
 {
 
     public class DebuggerVisualizer : DialogDebuggerVisualizer
     {
-        public const string Name = "Enumerable Visualizer 1.0";
+        public const string Name = "Enumerable Visualizer 1.1";
 
         protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
         {
