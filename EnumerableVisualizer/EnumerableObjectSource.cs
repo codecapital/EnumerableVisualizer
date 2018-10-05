@@ -5,13 +5,13 @@ using System.Windows.Forms;
 
 namespace CodeCapital.EnumerableVisualizer
 {
-    public class MyObjectSource : VisualizerObjectSource
+    public class EnumerableObjectSource : VisualizerObjectSource
     {
         public override void GetData(object target, Stream outgoingData)
         {
             try
             {
-                byte[] byteArray = JsonHelper.Serialize(target);
+                var byteArray = JsonHelper.Serialize(target);
                 outgoingData.Write(byteArray, 0, byteArray.Length);
             }
             catch (Exception exp)

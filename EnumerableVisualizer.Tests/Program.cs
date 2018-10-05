@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace EnumerableVisualizer.Tests
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var myString = "Hello, World";
+            var list1 = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            var list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var list1a = new List<string> { "Vaso", "Lena", "Helean", "Eva", "Viktoria", "Ada", "Lucia" };
 
             var list2 = new List<Person>
             {

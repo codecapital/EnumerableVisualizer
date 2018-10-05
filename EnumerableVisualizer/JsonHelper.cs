@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Dynamic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CodeCapital.EnumerableVisualizer
@@ -37,35 +39,63 @@ namespace CodeCapital.EnumerableVisualizer
 
         public static DataTable Deserialize(Stream stream)
         {
-            var list = new DataTable();
-
-            var serializer = new JsonSerializer
+            using (var reader = new StreamReader(stream))
             {
-                NullValueHandling = NullValueHandling.Ignore,
-                TypeNameHandling = TypeNameHandling.Auto
-            };
+                var jToken = JsonConvert.DeserializeObject(reader.ReadToEnd());
 
-            try
-            {
-                using (var reader = new StreamReader(stream))
-                using (var jsonTextReader = new JsonTextReader(reader))
+                var jArray = new JArray();
+
+                if (jToken is JArray jsonArray)
                 {
-                    var c = reader.ReadToEnd();
+                    foreach (var jsonRow in jsonArray.Children())
+                    {
+                        var row = new JObject();
 
-                    // check array or object
+                        if (!jsonRow.Children().Any())
+                        {
+                            jArray.Add(new JObject { { "List", jsonRow } });
 
-                    var dataTable = JsonConvert.DeserializeObject<DataTable>(c);
+                            continue;
+                        }
 
-                    return dataTable;
+                        foreach (var column in jsonRow.Children())
+                        {
+                            if (!column.HasValues) continue;
+
+                            if (column.First is JValue)
+                            {
+                                var jValue = (JProperty)column;
+
+                                row.Add(jValue.Name, jValue.Value);
+
+                            }
+                            else if (column.First is JObject)
+                            {
+                                var jValue = (JProperty)column;
+
+                                row.Add(jValue.Name, jValue.ToString());
+                            }
+                        }
+
+                        jArray.Add(row);
+                    }
                 }
-            }
 
-            catch (Exception exp)
-            {
-                MessageBox.Show(exp.Message, "Deserialize Error");
-            }
+                var dataTable = new DataTable();
 
-            return list;
+                if (jArray.Count == 0) return dataTable;
+
+                try
+                {
+                    dataTable = JsonConvert.DeserializeObject<DataTable>(jArray.ToString());
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.Message, "Deserialize Error");
+                }
+
+                return dataTable;
+            }
         }
 
         public static IList<ExpandoObject> Deserialize2(Stream stream)

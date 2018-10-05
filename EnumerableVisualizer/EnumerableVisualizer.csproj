@@ -49,7 +49,7 @@
   <ItemGroup>
     <Compile Include="DebuggerVisualizer.cs" />
     <Compile Include="JsonHelper.cs" />
-    <Compile Include="MyObjectSource.cs" />
+    <Compile Include="EnumerableObjectSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisualizerForm.cs">
       <SubType>Form</SubType>

@@ -7,29 +7,17 @@ using System.Diagnostics;
 using System.Dynamic;
 using System.Windows.Forms;
 
-//[assembly: DebuggerVisualizer(
-//        typeof(DebuggerVisualizer),
-//        typeof(VisualizerObjectSource),
-//        Target = typeof(string),
-//        Description = DebuggerVisualizer.Name)]
-
-[assembly: DebuggerVisualizer(
-    typeof(DebuggerVisualizer),
-    typeof(MyObjectSource),
-    Target = typeof(List<>),
-    Description = DebuggerVisualizer.Name)]
+[assembly: DebuggerVisualizer(typeof(DebuggerVisualizer), typeof(EnumerableObjectSource), Target = typeof(List<>), Description = DebuggerVisualizer.Name)]
 namespace CodeCapital.EnumerableVisualizer
 {
 
     public class DebuggerVisualizer : DialogDebuggerVisualizer
     {
-        public const string Name = "Enumerable Visualizer 0.1";
+        public const string Name = "Enumerable Visualizer 1.0";
 
         protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
         {
             Trace.Write(Name);
-
-            //MessageBox.Show(objectProvider.GetObject().ToString());
 
             try
             {
@@ -118,7 +106,7 @@ namespace CodeCapital.EnumerableVisualizer
         public static void TestShowVisualizer(object objectToVisualize)
         {
             //var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer));
-            var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer), typeof(MyObjectSource));
+            var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer), typeof(EnumerableObjectSource));
 
             visualizerHost.ShowVisualizer();
         }
