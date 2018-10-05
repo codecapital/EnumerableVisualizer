@@ -20,7 +20,7 @@ namespace EnumerableVisualizer.Tests
 
             var list4 = new List<Car>
             {
-                new Car("VW", 80, DateTime.Now.AddDays(-50)),
+                new Car("VW", 80),
                 new Car("Skoda", 300, DateTime.Now.AddDays(0)),
                 new Car("VW 2", 2018, DateTime.Now.AddDays(-10)),
                 new Car("B Skoda", 300, DateTime.Now.AddDays(30)),
@@ -33,7 +33,37 @@ namespace EnumerableVisualizer.Tests
                 new Person("Sandy", 23, new Car("Porsche", 300, DateTime.Now.AddDays(-5)))
             };
 
-            DebuggerVisualizer.TestShowVisualizer(list2);
+            var list6 = new[]
+            {
+                new Person("Vaso", 40, null),
+                new Person("Sandy", 23, new Car("Porsche", 300, DateTime.Now.AddDays(-5)))
+            };
+
+            var list7 = new[]
+            {
+                new Person { Name = "Vaso"},
+                new Person()
+            };
+
+            var list8 = new[]
+            {
+                new Gadget("Phone"),
+                new Gadget("Radio"),
+                new Gadget(""),
+                new Gadget("Self Drive"),
+                new Gadget("Tv")
+            };
+
+            var list9 = new[]
+            {
+                new Car(new Gadget("Phone")),
+                new Car(new Gadget("Radio")),
+                new Car(new Gadget("")),
+                new Car(new Gadget("Self Drive")),
+                new Car(new Gadget("Tv"))
+            };
+
+            DebuggerVisualizer.TestShowVisualizer(list9);
         }
     }
 
@@ -43,6 +73,11 @@ namespace EnumerableVisualizer.Tests
         public int Age { get; set; }
         public Car Car { get; set; }
 
+        public Person()
+        {
+
+        }
+
         public Person(string name, int age, Car car)
         {
             Name = name;
@@ -51,15 +86,28 @@ namespace EnumerableVisualizer.Tests
         }
     }
 
+    public class Gadget
+    {
+        public string Name { get; set; }
+        public Gadget(string name) => Name = name;
+    }
+
     public class Car
     {
         public string Brand { get; set; }
 
         public int Speed { get; set; }
 
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
-        public Car(string brand, int speed, DateTime dateAdded)
+        public Gadget Gadget { get; set; }
+
+        public Car(Gadget gadget)
+        {
+            Gadget = gadget;
+        }
+
+        public Car(string brand, int speed, DateTime? dateAdded = null)
         {
             Brand = brand;
             Speed = speed;

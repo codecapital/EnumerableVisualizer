@@ -80,20 +80,31 @@ namespace CodeCapital.EnumerableVisualizer
 
                 foreach (var column in jsonRow.Children())
                 {
-                    if (!column.HasValues) continue;
+                    //Maybe not needed
+                    //if (!column.HasValues) continue;
+
+                    var jValue = (JProperty)column;
 
                     if (column.First is JValue)
                     {
-                        var jValue = (JProperty)column;
-
                         row.Add(jValue.Name, jValue.Value);
-
                     }
-                    else if (column.First is JObject)
+                    else if (column.First is JObject jObject)
                     {
-                        var jValue = (JProperty)column;
+                        // This could be made recursive but let's stop it here for now
+                        foreach (var level2Column in jObject.Children())
+                        {
+                            var jValue2 = (JProperty)level2Column;
 
-                        row.Add(jValue.Name, jValue.ToString());
+                            if (level2Column.First is JValue)
+                            {
+                                row.Add($"{jValue.Name}.{jValue2.Name}", jValue2.Value);
+                            }
+                            else if (level2Column.First is JObject)
+                            {
+                                row.Add($"{jValue.Name}.{jValue2.Name}", jValue2.ToString());
+                            }
+                        }
                     }
                 }
 
@@ -101,6 +112,7 @@ namespace CodeCapital.EnumerableVisualizer
             }
         }
 
+        [Obsolete("Will be removed", true)]
         public static IList<ExpandoObject> Deserialize2(Stream stream)
         {
             var list = new List<ExpandoObject>();
@@ -138,6 +150,7 @@ namespace CodeCapital.EnumerableVisualizer
             return list;
         }
 
+        [Obsolete("Will be removed", true)]
         public static string ObjectToString(object _object)
         {
             string _str = string.Empty;
