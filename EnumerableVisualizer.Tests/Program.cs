@@ -1,4 +1,5 @@
 ﻿using CodeCapital.EnumerableVisualizer;
+using System;
 using System.Collections.Generic;
 
 namespace EnumerableVisualizer.Tests
@@ -13,17 +14,20 @@ namespace EnumerableVisualizer.Tests
 
             var list2 = new List<Person>
             {
-                new Person("Vaso", 40, new Car("VW", 80)),
-                new Person("Lena", 45, new Car("Skoda", 300))
+                new Person("Vaso", 40, new Car("VW", 80, DateTime.Now)),
+                new Person("Lena", 45, new Car("Skoda", 300, DateTime.Now.AddDays(-5)))
             };
 
             var list3 = new List<Car>
             {
-                new Car("VW", 80),
-                new Car("Skoda", 300)
+                new Car("VW", 80, DateTime.Now.AddDays(-50)),
+                new Car("Skoda", 300, DateTime.Now.AddDays(0)),
+                new Car("VW 2", 2018, DateTime.Now.AddDays(-10)),
+                new Car("B Skoda", 300, DateTime.Now.AddDays(30)),
+                new Car("8080 2018", 300, DateTime.Now.AddDays(-500))
             };
 
-            DebuggerVisualizer.TestShowVisualizer(list);
+            DebuggerVisualizer.TestShowVisualizer(list3);
         }
     }
 
@@ -47,10 +51,13 @@ namespace EnumerableVisualizer.Tests
 
         public int Speed { get; set; }
 
-        public Car(string brand, int speed)
+        public DateTime DateAdded { get; set; }
+
+        public Car(string brand, int speed, DateTime dateAdded)
         {
             Brand = brand;
             Speed = speed;
+            DateAdded = dateAdded;
         }
     }
 }

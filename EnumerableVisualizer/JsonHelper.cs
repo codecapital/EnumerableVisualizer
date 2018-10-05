@@ -12,8 +12,8 @@ namespace CodeCapital.EnumerableVisualizer
     {
         public static byte[] Serialize(object _Object)
         {
-            MemoryStream _MemoryStream = new MemoryStream();
-            JsonSerializer serializer = new JsonSerializer
+            var memoryStream = new MemoryStream();
+            var serializer = new JsonSerializer
             {
                 NullValueHandling = NullValueHandling.Ignore,
                 TypeNameHandling = TypeNameHandling.Auto
@@ -21,8 +21,8 @@ namespace CodeCapital.EnumerableVisualizer
 
             try
             {
-                using (StreamWriter sw = new StreamWriter(_MemoryStream))
-                using (JsonWriter writer = new JsonTextWriter(sw))
+                using (var sw = new StreamWriter(memoryStream))
+                using (var writer = new JsonTextWriter(sw))
                 {
                     serializer.Serialize(writer, _Object);
                 }
@@ -31,7 +31,8 @@ namespace CodeCapital.EnumerableVisualizer
             {
                 MessageBox.Show(exp.Message, "Serialize Error");
             }
-            return _MemoryStream.ToArray();
+
+            return memoryStream.ToArray();
         }
 
         public static DataTable Deserialize(Stream stream)
