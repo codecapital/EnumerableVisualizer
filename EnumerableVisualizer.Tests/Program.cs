@@ -13,8 +13,20 @@ namespace EnumerableVisualizer.Tests
 
             var list3 = new List<Person>
             {
-                new Person("Vaso", 40, new Car("VW", 80, DateTime.Now)),
-                new Person("Lena", 45, new Car("Skoda", 300, DateTime.Now.AddDays(-5)))
+                new Person("Vaso", 40, new Car("VW", 2017, DateTime.Now)),
+                new Person("Lena", 45, new Car("Skoda", 300, DateTime.Now.AddDays(-5))),
+                new Person("Phu", 20, new Car("Skoda", 3000, DateTime.Now.AddDays(-5))),
+                new Person("John", 45, new Car("Skoda Subaru", 300, DateTime.Now.AddDays(-5))),
+                new Person("Bob", 20, new Car("Skoda 23", 300, DateTime.Now.AddDays(-5)))
+            };
+
+            var list31 = new List<Person>
+            {
+                new Person("Vaso", 40, new Car("VW", 2017, DateTime.Now, new Gadget("Phone"))),
+                new Person("Lena", 45, new Car("Skoda", 300, DateTime.Now.AddDays(-5), new Gadget("Phone"))),
+                new Person("Phu", 20, new Car("Skoda", 3000, DateTime.Now.AddDays(-5), new Gadget("Tv"))),
+                new Person("John", 45, new Car("Skoda Subaru", 300, DateTime.Now.AddDays(-5), new Gadget("Phone"))),
+                new Person("Bob", 20, new Car("Skoda 23", 300, DateTime.Now.AddDays(-5), new Gadget("Radio")))
             };
 
             var list4 = new List<Car>
@@ -85,12 +97,6 @@ namespace EnumerableVisualizer.Tests
         }
     }
 
-    public class Gadget
-    {
-        public string Name { get; set; }
-        public Gadget(string name) => Name = name;
-    }
-
     public class Car
     {
         public string Brand { get; set; }
@@ -103,11 +109,18 @@ namespace EnumerableVisualizer.Tests
 
         public Car(Gadget gadget) => Gadget = gadget;
 
-        public Car(string brand, int speed, DateTime? dateAdded = null)
+        public Car(string brand, int speed, DateTime? dateAdded = null, Gadget gadget = null)
         {
             Brand = brand;
             Speed = speed;
             DateAdded = dateAdded;
+            Gadget = gadget;
         }
+    }
+
+    public class Gadget
+    {
+        public string Name { get; set; }
+        public Gadget(string name) => Name = name;
     }
 }
