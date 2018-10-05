@@ -45,41 +45,7 @@ namespace CodeCapital.EnumerableVisualizer
 
                 var jArray = new JArray();
 
-                if (jToken is JArray jsonArray)
-                {
-                    foreach (var jsonRow in jsonArray.Children())
-                    {
-                        var row = new JObject();
-
-                        if (!jsonRow.Children().Any())
-                        {
-                            jArray.Add(new JObject { { "List", jsonRow } });
-
-                            continue;
-                        }
-
-                        foreach (var column in jsonRow.Children())
-                        {
-                            if (!column.HasValues) continue;
-
-                            if (column.First is JValue)
-                            {
-                                var jValue = (JProperty)column;
-
-                                row.Add(jValue.Name, jValue.Value);
-
-                            }
-                            else if (column.First is JObject)
-                            {
-                                var jValue = (JProperty)column;
-
-                                row.Add(jValue.Name, jValue.ToString());
-                            }
-                        }
-
-                        jArray.Add(row);
-                    }
-                }
+                if (jToken is JArray parsedArray) ProcessJArray(jArray, parsedArray);
 
                 var dataTable = new DataTable();
 
@@ -95,6 +61,43 @@ namespace CodeCapital.EnumerableVisualizer
                 }
 
                 return dataTable;
+            }
+        }
+
+        private static void ProcessJArray(JArray jArray, JToken parsedArray)
+        {
+            foreach (var jsonRow in parsedArray.Children())
+            {
+                var row = new JObject();
+
+                // One dimensional List
+                if (!jsonRow.Children().Any())
+                {
+                    jArray.Add(new JObject { { "List", jsonRow } });
+
+                    continue;
+                }
+
+                foreach (var column in jsonRow.Children())
+                {
+                    if (!column.HasValues) continue;
+
+                    if (column.First is JValue)
+                    {
+                        var jValue = (JProperty)column;
+
+                        row.Add(jValue.Name, jValue.Value);
+
+                    }
+                    else if (column.First is JObject)
+                    {
+                        var jValue = (JProperty)column;
+
+                        row.Add(jValue.Name, jValue.ToString());
+                    }
+                }
+
+                jArray.Add(row);
             }
         }
 

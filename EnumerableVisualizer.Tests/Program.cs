@@ -10,15 +10,15 @@ namespace EnumerableVisualizer.Tests
         {
             var list1 = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-            var list1a = new List<string> { "Vaso", "Lena", "Helean", "Eva", "Viktoria", "Ada", "Lucia" };
+            var list2 = new List<string> { "Vaso", "Lena", "Helean", "Eva", "Viktoria", "Ada", "Lucia" };
 
-            var list2 = new List<Person>
+            var list3 = new List<Person>
             {
                 new Person("Vaso", 40, new Car("VW", 80, DateTime.Now)),
                 new Person("Lena", 45, new Car("Skoda", 300, DateTime.Now.AddDays(-5)))
             };
 
-            var list3 = new List<Car>
+            var list4 = new List<Car>
             {
                 new Car("VW", 80, DateTime.Now.AddDays(-50)),
                 new Car("Skoda", 300, DateTime.Now.AddDays(0)),
@@ -27,7 +27,13 @@ namespace EnumerableVisualizer.Tests
                 new Car("8080 2018", 300, DateTime.Now.AddDays(-500))
             };
 
-            DebuggerVisualizer.TestShowVisualizer(list3);
+            var list5 = new[]
+            {
+                new Person("Vaso", 40, new Car("VW", 80, DateTime.Now)),
+                new Person("Sandy", 23, new Car("Porsche", 300, DateTime.Now.AddDays(-5)))
+            };
+
+            DebuggerVisualizer.TestShowVisualizer(list2);
         }
     }
 
