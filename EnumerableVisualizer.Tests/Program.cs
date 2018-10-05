@@ -1,5 +1,4 @@
-﻿using CodeCapital.EnumerableVisualizer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace EnumerableVisualizer.Tests
@@ -63,7 +62,7 @@ namespace EnumerableVisualizer.Tests
                 new Car(new Gadget("Tv"))
             };
 
-            DebuggerVisualizer.TestShowVisualizer(list9);
+            //DebuggerEnumerableVisualizer.TestShowVisualizer(list4);
         }
     }
 
@@ -102,10 +101,7 @@ namespace EnumerableVisualizer.Tests
 
         public Gadget Gadget { get; set; }
 
-        public Car(Gadget gadget)
-        {
-            Gadget = gadget;
-        }
+        public Car(Gadget gadget) => Gadget = gadget;
 
         public Car(string brand, int speed, DateTime? dateAdded = null)
         {

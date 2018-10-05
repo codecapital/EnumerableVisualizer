@@ -50,11 +50,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EnumerableVisualizer\EnumerableVisualizer.csproj">
-      <Project>{8365ce70-3a3f-4a68-bcb5-ea4bb6698dd8}</Project>
-      <Name>EnumerableVisualizer</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

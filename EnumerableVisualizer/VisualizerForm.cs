@@ -1,5 +1,4 @@
-﻿using ClosedXML.Excel;
-using System;
+﻿using System;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -35,6 +34,12 @@ namespace CodeCapital.EnumerableVisualizer
 
         private void ExportToExcelButton_Click(object sender, System.EventArgs e)
         {
+            MessageBox.Show("Select, copy and paste your selection to Excel.");
+
+            return;
+
+            // This is removed because it is huge
+
             var myDocumentsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
             var saveDialog = new SaveFileDialog
@@ -50,11 +55,11 @@ namespace CodeCapital.EnumerableVisualizer
 
             var path = saveDialog.FileName;
 
-            using (var workbook = new XLWorkbook())
-            {
-                workbook.Worksheets.Add(_dataTable, "DataTable");
-                workbook.SaveAs(saveDialog.FileName);
-            }
+            //using (var workbook = new XLWorkbook())
+            //{
+            //    workbook.Worksheets.Add(_dataTable, "DataTable");
+            //    workbook.SaveAs(saveDialog.FileName);
+            //}
         }
 
         private void VisualizerGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

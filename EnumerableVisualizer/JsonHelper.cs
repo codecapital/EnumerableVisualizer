@@ -66,6 +66,9 @@ namespace CodeCapital.EnumerableVisualizer
 
         private static void ProcessJArray(JArray jArray, JToken parsedArray)
         {
+            // checking for duplicate columns
+            //var columnList = new Dictionary<string, int>();
+
             foreach (var jsonRow in parsedArray.Children())
             {
                 var row = new JObject();
@@ -84,6 +87,8 @@ namespace CodeCapital.EnumerableVisualizer
                     //if (!column.HasValues) continue;
 
                     var jValue = (JProperty)column;
+
+                    //var columnIndex = CheckColumnName(jValue.Name);
 
                     if (column.First is JValue)
                     {
@@ -110,6 +115,23 @@ namespace CodeCapital.EnumerableVisualizer
 
                 jArray.Add(row);
             }
+
+            //int CheckColumnName(string columnName)
+            //{
+            //    if (columnList.TryGetValue(columnName, out var index))
+            //    {
+            //        columnList[columnName]++;
+            //        return index;
+            //    }
+                
+            //    //var columnExist = columnList.ContainsKey(columnName);
+
+            //    //if (columnExist) return columnList[columnName];
+
+            //    columnList.Add(columnName, 1);
+
+            //    return 1;
+            //}
         }
 
         [Obsolete("Will be removed", true)]
