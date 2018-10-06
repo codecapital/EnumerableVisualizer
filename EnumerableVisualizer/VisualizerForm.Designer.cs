@@ -36,10 +36,10 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.ClearSearchButton = new System.Windows.Forms.ToolStripButton();
-            this.panelContent = new System.Windows.Forms.Panel();
-            this.VisualizerGridView = new System.Windows.Forms.DataGridView();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.CountLabel = new System.Windows.Forms.ToolStripLabel();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.VisualizerGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VisualizerGridView)).BeginInit();
@@ -111,6 +111,17 @@
             this.ClearSearchButton.Visible = false;
             this.ClearSearchButton.Click += new System.EventHandler(this.ClearSearchButton_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // CountLabel
+            // 
+            this.CountLabel.Name = "CountLabel";
+            this.CountLabel.Size = new System.Drawing.Size(66, 24);
+            this.CountLabel.Text = "Count = ";
+            // 
             // panelContent
             // 
             this.panelContent.Controls.Add(this.VisualizerGridView);
@@ -124,6 +135,7 @@
             // 
             this.VisualizerGridView.AllowUserToAddRows = false;
             this.VisualizerGridView.AllowUserToDeleteRows = false;
+            this.VisualizerGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.VisualizerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VisualizerGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VisualizerGridView.Location = new System.Drawing.Point(0, 0);
@@ -133,17 +145,6 @@
             this.VisualizerGridView.Size = new System.Drawing.Size(959, 533);
             this.VisualizerGridView.TabIndex = 0;
             this.VisualizerGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.VisualizerGridView_CellPainting);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // CountLabel
-            // 
-            this.CountLabel.Name = "CountLabel";
-            this.CountLabel.Size = new System.Drawing.Size(66, 24);
-            this.CountLabel.Text = "Count = ";
             // 
             // VisualizerForm
             // 
