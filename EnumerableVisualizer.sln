@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableVisualizer.Tests"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableVisualizer", "EnumerableVisualizer\EnumerableVisualizer.csproj", "{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreEnumerableVisualizer", "..\CoreEnumerableVisualizer\CoreEnumerableVisualizer.csproj", "{6F252F2F-E6CC-41C6-AB47-19DFD01C1192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEnumerableVisualizer", "CoreEnumerableVisualizer\CoreEnumerableVisualizer.csproj", "{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F252F2F-E6CC-41C6-AB47-19DFD01C1192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F252F2F-E6CC-41C6-AB47-19DFD01C1192}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F252F2F-E6CC-41C6-AB47-19DFD01C1192}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F252F2F-E6CC-41C6-AB47-19DFD01C1192}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
