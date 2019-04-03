@@ -7,7 +7,13 @@ namespace EnumerableVisualizer.Tests
     {
         private static void Main(string[] args)
         {
+            var test = "Some text";
+
+            //StringVisualizer.TestShowVisualizer(test);
+
             var list1 = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            //CoreDebuggerEnumerableVisualizer.TestShowVisualizer(list1);
 
             var list2 = new List<string> { "Vaso", "Lena", "Helean", "Eva", "Viktoria", "Ada", "Lucia" };
 
@@ -74,7 +80,7 @@ namespace EnumerableVisualizer.Tests
                 new Car(new Gadget("Tv"))
             };
 
-            //DebuggerEnumerableVisualizer.TestShowVisualizer(list4);
+            //CoreDebuggerEnumerableVisualizer.TestShowVisualizer(list4);
         }
     }
 

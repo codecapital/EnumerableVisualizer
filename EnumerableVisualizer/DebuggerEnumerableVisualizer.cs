@@ -39,6 +39,12 @@ using System.Xml.Schema;
 using System.Xml.XPath;
 
 // https://github.com/JeremyThomas/rapiddevbookcode/blob/LLBL_Pro_v4.2/AW.DebugVisualizers/VisualizerRegistrations.cs
+// https://raw.githubusercontent.com/JeremyThomas/rapiddevbookcode/LLBL_Pro_v4.2/AW.DebugVisualizers/VisualizerRegistrations.cs
+//https://github.com/MBulli/MathNetDebugVisualizer
+//https://wrightfully.com/series/debugger-visualizer
+//https://github.com/ChenDaqian/Visual-Studio-Visualizer
+//https://github.com/moraleslarios/MLCollectionVisualizers
+//https://github.com/huanent/Huanent.VisualStudio.DebuggerVisualizers
 
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(WeakReference), Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ApplicationTrustCollection), Description = DebuggerEnumerableVisualizer.Description)]
@@ -677,13 +683,30 @@ using System.Xml.XPath;
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(SqlErrorCollection), Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(SqlParameterCollection), Description = DebuggerEnumerableVisualizer.Description)]
 //[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "Oracle.DataAccess.Client.OracleParameterCollection, Oracle.DataAccess.Client", Description = DebuggerEnumerableVisualizer.Description)]
-
+[assembly: DebuggerVisualizer(typeof(StringVisualizer), typeof(VisualizerObjectSource), Target = typeof(System.String), Description = "My String Visualizer")]
 
 //[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(List<>), Description = DebuggerEnumerableVisualizer.Description)]
 //[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(Array), Description = DebuggerEnumerableVisualizer.Description)]
 //[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ArrayList), Description = DebuggerEnumerableVisualizer.Description)]
 namespace CodeCapital.EnumerableVisualizer
 {
+    public class StringVisualizer : DialogDebuggerVisualizer
+    {
+        protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
+        {
+            Console.WriteLine("Some Text Version 1");
+            Trace.Write("Aaaaa Text Version 1");
+        }
+
+        public static void TestShowVisualizer(object objectToVisualize)
+        {
+            //var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer));
+            var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(StringVisualizer), typeof(EnumerableObjectSource));
+
+            visualizerHost.ShowVisualizer();
+        }
+    }
+
     public class DebuggerEnumerableVisualizer : DialogDebuggerVisualizer
     {
         public const string Description = "Enumerable Visualizer 1.2";
