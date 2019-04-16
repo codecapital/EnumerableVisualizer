@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableVisualizer", "Enu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreEnumerableVisualizer", "CoreEnumerableVisualizer\CoreEnumerableVisualizer.csproj", "{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySecondVisalizer", "..\..\..\..\Temp\MySecondVisalizer\MySecondVisalizer\MySecondVisalizer.csproj", "{AD4AFA8F-0F25-473F-8582-C6FC101B4665}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC814EE3-3797-4A5C-A3A7-492B522CF1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD4AFA8F-0F25-473F-8582-C6FC101B4665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4AFA8F-0F25-473F-8582-C6FC101B4665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4AFA8F-0F25-473F-8582-C6FC101B4665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD4AFA8F-0F25-473F-8582-C6FC101B4665}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
