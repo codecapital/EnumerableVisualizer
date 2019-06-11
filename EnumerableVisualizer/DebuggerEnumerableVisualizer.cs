@@ -38,14 +38,6 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.XPath;
 
-// https://github.com/JeremyThomas/rapiddevbookcode/blob/LLBL_Pro_v4.2/AW.DebugVisualizers/VisualizerRegistrations.cs
-// https://raw.githubusercontent.com/JeremyThomas/rapiddevbookcode/LLBL_Pro_v4.2/AW.DebugVisualizers/VisualizerRegistrations.cs
-//https://github.com/MBulli/MathNetDebugVisualizer
-//https://wrightfully.com/series/debugger-visualizer
-//https://github.com/ChenDaqian/Visual-Studio-Visualizer
-//https://github.com/moraleslarios/MLCollectionVisualizers
-//https://github.com/huanent/Huanent.VisualStudio.DebuggerVisualizers
-
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(WeakReference), Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ApplicationTrustCollection), Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(Array), Description = DebuggerEnumerableVisualizer.Description)]
