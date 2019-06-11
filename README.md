@@ -24,10 +24,9 @@ This is a still work in progres. Pretty much it is an un-edited experiment.
 - Currently supported: List<>, Array, ArrayList
 
 ## Installation
-Copy the following files to your version of Visual Studio c:\Users\YOUR-PROFILE-NAME\Documents\Visual Studio 2017\Visualizers\
+Copy the following files from the folder **Dist** (or compiled files) to your version of Visual Studio c:\Users\YOUR-PROFILE-NAME\Documents\Visual Studio 2017\Visualizers\
 
 - CodeCapital.EnumerableVisualizer.dll
-- CodeCapital.EnumerableVisualizer.pdb
 - Newtonsoft.Json.dll
 
 ## Known issues
