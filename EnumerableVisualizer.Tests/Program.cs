@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnumerableVisualizer.SharedTests;
+using System;
 using System.Collections.Generic;
 
 namespace EnumerableVisualizer.Tests
