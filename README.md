@@ -6,6 +6,7 @@ Visual Studio Debugger Enumerable Visualizer without any [Serialize] attribute, 
 This is a still work in progres. Pretty much it is an un-edited experiment.
 
 ## Source
+- https://github.com/zspitz/ExpressionToString
 - https://github.com/JeremyThomas/rapiddevbookcode/blob/LLBL_Pro_v4.2/AW.DebugVisualizers/VisualizerRegistrations.cs
 - https://raw.githubusercontent.com/JeremyThomas/rapiddevbookcode/LLBL_Pro_v4.2/AW.DebugVisualizers/VisualizerRegistrations.cs
 - https://github.com/MBulli/MathNetDebugVisualizer
