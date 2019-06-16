@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,6 +7,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EnumerableVisualizer.SharedTests\EnumerableVisualizer.SharedTests.csproj" />
+    <ProjectReference Include="..\EnumerableVisualizer\EnumerableVisualizer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers">
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.DebuggerVisualizers.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

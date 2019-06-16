@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.DebuggerVisualizers;
 using System;
 using System.IO;
-using System.Windows.Forms;
 
 namespace CodeCapital.EnumerableVisualizer
 {
@@ -16,7 +15,7 @@ namespace CodeCapital.EnumerableVisualizer
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "VisualizerObjectSource Error");
+                //MessageBox.Show(exp.Message, "VisualizerObjectSource Error");
             }
         }
     }

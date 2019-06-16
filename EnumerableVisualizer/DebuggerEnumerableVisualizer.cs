@@ -18,6 +18,7 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -32,8 +33,7 @@ using System.Security.Permissions;
 using System.Security.Policy;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Windows.Forms.Layout;
+using System.Windows;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.XPath;
@@ -278,43 +278,43 @@ using System.Xml.XPath;
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Linq.Parallel.PartitionerQueryOperator`1+<AsSequentialQuery>d__5, System.Core", Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Linq.Parallel.ZipQueryOperator`3+<AsSequentialQuery>d__9, System.Core", Description = DebuggerEnumerableVisualizer.Description)]
 // System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ArrangedElementCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(AutoCompleteStringCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(BaseCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(BindingContext), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(BindingSource), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(DataGridViewRowCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(GridItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(HtmlElementCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(HtmlWindowCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListViewGroupCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(NumericUpDownAccelerationCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ResXResourceReader), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(CheckedListBox.CheckedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(CheckedListBox.CheckedItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ComboBox.ObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(DataGridViewComboBoxCell.ObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ImageList.ImageCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(LinkLabel.LinkCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.IntegerCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.ObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.SelectedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.SelectedObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.CheckedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.CheckedListViewItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.ColumnHeaderCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.ListViewItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.SelectedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.SelectedListViewItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListViewItem.ListViewSubItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(Menu.MenuItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(PropertyGrid.PropertyTabCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(StatusBar.StatusBarPanelCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(TabControl.TabPageCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ToolBar.ToolBarButtonCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(TableLayoutStyleCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(TreeNodeCollection), Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Windows.Forms.ClientUtils+WeakRefCollection, System.Windows.Forms", Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ArrangedElementCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(AutoCompleteStringCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(BaseCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(BindingContext), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(BindingSource), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(DataGridViewRowCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(GridItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(HtmlElementCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(HtmlWindowCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListViewGroupCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(NumericUpDownAccelerationCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ResXResourceReader), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(CheckedListBox.CheckedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(CheckedListBox.CheckedItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ComboBox.ObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(DataGridViewComboBoxCell.ObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ImageList.ImageCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(LinkLabel.LinkCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.IntegerCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.ObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.SelectedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListBox.SelectedObjectCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.CheckedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.CheckedListViewItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.ColumnHeaderCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.ListViewItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.SelectedIndexCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListView.SelectedListViewItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ListViewItem.ListViewSubItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(Menu.MenuItemCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(PropertyGrid.PropertyTabCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(StatusBar.StatusBarPanelCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(TabControl.TabPageCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ToolBar.ToolBarButtonCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(TableLayoutStyleCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(TreeNodeCollection), Description = DebuggerEnumerableVisualizer.Description)]
+//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Windows.Forms.ClientUtils+WeakRefCollection, System.Windows.Forms", Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Windows.Forms.DataGridViewCellLinkedList, System.Windows.Forms", Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Windows.Forms.DataGridViewIntLinkedList, System.Windows.Forms", Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "System.Windows.Forms.PropertyGridInternal.MergePropertyDescriptor+MultiMergeCollection, System.Windows.Forms", Description = DebuggerEnumerableVisualizer.Description)]
@@ -713,7 +713,7 @@ namespace CodeCapital.EnumerableVisualizer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception getting object data: " + ex.Message);
+                //MessageBox.Show("Exception getting object data: " + ex.Message);
             }
         }
 
@@ -723,19 +723,32 @@ namespace CodeCapital.EnumerableVisualizer
 
             var dataStream = objectProvider.GetData();
 
+            using (var streamReader = new StreamReader(dataStream))
+            {
+                MessageBox.Show(streamReader.ReadToEnd());
+            }
+
             if (dataStream != null && dataStream.Length > 0)
             {
                 var dataTable = JsonHelper.Deserialize(dataStream);
 
                 ShowVisualizerForm(dataTable);
             }
+            else
+            {
+                ShowVisualizerForm(null);
+            }
         }
 
         private static void ShowVisualizerForm(DataTable data)
         {
-            var form = new VisualizerForm(data);
+            var window = new VisualizerWindow();
 
-            form.ShowDialog();
+            window.ShowDialog();
+
+            //var form = new VisualizerForm(data);
+
+            //form.ShowDialog();
         }
 
         public static void TestShowVisualizer(object objectToVisualize)

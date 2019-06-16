@@ -1,6 +1,8 @@
 ﻿using EnumerableVisualizer.SharedTests;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace EnumerableVisualizer.CoreTests
 {
@@ -13,6 +15,12 @@ namespace EnumerableVisualizer.CoreTests
             //StringVisualizer.TestShowVisualizer(test);
 
             var list1 = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            var list1a = list1.Select(a => a);
+
+            Expression<Func<bool>> expr = () => true;
+
+            //DebuggerEnumerableVisualizer.TestShowVisualizer(list1);
 
             //CoreDebuggerEnumerableVisualizer.TestShowVisualizer(list1);
 

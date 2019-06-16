@@ -6,7 +6,6 @@ using System.Data;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace CodeCapital.EnumerableVisualizer
 {
@@ -31,7 +30,7 @@ namespace CodeCapital.EnumerableVisualizer
             }
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "Serialize Error");
+                //MessageBox.Show(exp.Message, "Serialize Error");
             }
 
             return memoryStream.ToArray();
@@ -57,7 +56,7 @@ namespace CodeCapital.EnumerableVisualizer
                 }
                 catch (Exception exp)
                 {
-                    MessageBox.Show(exp.Message, "Deserialize Error");
+                    //MessageBox.Show(exp.Message, "Deserialize Error");
                 }
 
                 return dataTable;
@@ -123,7 +122,7 @@ namespace CodeCapital.EnumerableVisualizer
             //        columnList[columnName]++;
             //        return index;
             //    }
-                
+
             //    //var columnExist = columnList.ContainsKey(columnName);
 
             //    //if (columnExist) return columnList[columnName];
@@ -166,7 +165,7 @@ namespace CodeCapital.EnumerableVisualizer
 
             catch (Exception exp)
             {
-                MessageBox.Show(exp.Message, "Deserialize Error");
+                //MessageBox.Show(exp.Message, "Deserialize Error");
             }
 
             return list;
