@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}</ProjectGuid>
+    <ProjectGuid>{95D5B94B-CC1A-42B6-B54A-E25D44FBFD00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeCapital.EnumerableVisualizer</RootNamespace>
-    <AssemblyName>CodeCapital.EnumerableVisualizer</AssemblyName>
+    <RootNamespace>EnumerableVisualizer</RootNamespace>
+    <AssemblyName>EnumerableVisualizer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,43 +34,34 @@
     <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.DebuggerVisualizers.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebuggerEnumerableVisualizer.cs" />
-    <Compile Include="JsonHelper.cs" />
-    <Compile Include="EnumerableObjectSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VisualizerWindow.xaml.cs">
-      <DependentUpon>VisualizerWindow.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="VisualizerWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
     <PackageReference Include="System.Numerics.Vectors">
       <Version>4.6.0-preview5.19224.8</Version>
     </PackageReference>
@@ -82,10 +72,6 @@
       <Version>4.6.0-preview.18571.3</Version>
     </PackageReference>
   </ItemGroup>
+  <Import Project="..\Visualizer\Visualizer.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>rem copy "$(TargetDir)CodeCapital.EnumerableVisualizer.dll" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\CodeCapital.EnumerableVisualizer.dll"
-rem copy "$(TargetDir)CodeCapital.EnumerableVisualizer.pdb" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\CodeCapital.EnumerableVisualizer.pdb"
-rem copy "$(TargetDir)Newtonsoft.Json.dll" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\Newtonsoft.Json.dll"</PostBuildEvent>
-  </PropertyGroup>
 </Project>

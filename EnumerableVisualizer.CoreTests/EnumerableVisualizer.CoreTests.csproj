@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EnumerableVisualizer.SharedTests\EnumerableVisualizer.SharedTests.csproj" />
-    <ProjectReference Include="..\EnumerableVisualizer\EnumerableVisualizer.csproj" />
   </ItemGroup>
 
   <ItemGroup>

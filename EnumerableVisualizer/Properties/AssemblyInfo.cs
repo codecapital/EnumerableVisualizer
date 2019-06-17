@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EnumerableVisualizer")]
-[assembly: AssemblyDescription("Visual Studio 2017 debugger enumerable visualizer without Seriazible attribute.")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Code Capital Ltd")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("EnumerableVisualizer")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8365ce70-3a3f-4a68-bcb5-ea4bb6698dd8")]
+[assembly: Guid("95d5b94b-cc1a-42b6-b54a-e25d44fbfd00")]
 
 // Version information for an assembly consists of the following four values:
 //

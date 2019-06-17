@@ -1,57 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableVisualizer.Tests", "EnumerableVisualizer.Tests\EnumerableVisualizer.Tests.csproj", "{C85656F3-A22F-4218-89A8-1A54D1364923}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableVisualizer", "EnumerableVisualizer\EnumerableVisualizer.csproj", "{95D5B94B-CC1A-42B6-B54A-E25D44FBFD00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumerableVisualizer", "EnumerableVisualizer\EnumerableVisualizer.csproj", "{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{581F9798-2660-4E6C-BCFE-CCED20371013}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerableVisualizer.CoreTests", "EnumerableVisualizer.CoreTests\EnumerableVisualizer.CoreTests.csproj", "{CD2D940F-8946-45F4-89E2-39661F436ABF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerableVisualizer.SharedTests", "EnumerableVisualizer.SharedTests\EnumerableVisualizer.SharedTests.csproj", "{F2884BAC-BE17-4A86-B1F8-B6171B24757A}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Visualizer", "Visualizer\Visualizer.shproj", "{577E7E62-3C78-4376-8D43-6CA645EA38F9}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Visualizer\Visualizer.projitems*{577e7e62-3c78-4376-8d43-6ca645ea38f9}*SharedItemsImports = 13
+		Visualizer\Visualizer.projitems*{95d5b94b-cc1a-42b6-b54a-e25d44fbfd00}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		ReleaseCI|Any CPU = ReleaseCI|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C85656F3-A22F-4218-89A8-1A54D1364923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C85656F3-A22F-4218-89A8-1A54D1364923}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C85656F3-A22F-4218-89A8-1A54D1364923}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C85656F3-A22F-4218-89A8-1A54D1364923}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C85656F3-A22F-4218-89A8-1A54D1364923}.ReleaseCI|Any CPU.ActiveCfg = Release|Any CPU
-		{C85656F3-A22F-4218-89A8-1A54D1364923}.ReleaseCI|Any CPU.Build.0 = Release|Any CPU
-		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.ReleaseCI|Any CPU.ActiveCfg = Release|Any CPU
-		{8365CE70-3A3F-4A68-BCB5-EA4BB6698DD8}.ReleaseCI|Any CPU.Build.0 = Release|Any CPU
-		{CD2D940F-8946-45F4-89E2-39661F436ABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD2D940F-8946-45F4-89E2-39661F436ABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD2D940F-8946-45F4-89E2-39661F436ABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD2D940F-8946-45F4-89E2-39661F436ABF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD2D940F-8946-45F4-89E2-39661F436ABF}.ReleaseCI|Any CPU.ActiveCfg = Release|Any CPU
-		{CD2D940F-8946-45F4-89E2-39661F436ABF}.ReleaseCI|Any CPU.Build.0 = Release|Any CPU
-		{F2884BAC-BE17-4A86-B1F8-B6171B24757A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2884BAC-BE17-4A86-B1F8-B6171B24757A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2884BAC-BE17-4A86-B1F8-B6171B24757A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2884BAC-BE17-4A86-B1F8-B6171B24757A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2884BAC-BE17-4A86-B1F8-B6171B24757A}.ReleaseCI|Any CPU.ActiveCfg = Release|Any CPU
-		{F2884BAC-BE17-4A86-B1F8-B6171B24757A}.ReleaseCI|Any CPU.Build.0 = Release|Any CPU
+		{95D5B94B-CC1A-42B6-B54A-E25D44FBFD00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D5B94B-CC1A-42B6-B54A-E25D44FBFD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D5B94B-CC1A-42B6-B54A-E25D44FBFD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D5B94B-CC1A-42B6-B54A-E25D44FBFD00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {89E39DEE-66DA-460D-9E8B-6771505B797B}
+		SolutionGuid = {363BE446-B407-4D4F-9A9D-B16DD1A4A8B5}
 	EndGlobalSection
 EndGlobal

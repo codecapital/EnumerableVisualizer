@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerableVisualizer.CoreTests", "EnumerableVisualizer.CoreTests.csproj", "{743C625A-9E45-4653-AFC8-815C15C144B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumerableVisualizer.SharedTests", "..\EnumerableVisualizer.SharedTests\EnumerableVisualizer.SharedTests.csproj", "{FCBC20F1-4672-47C5-91BD-F00F4AE24259}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{743C625A-9E45-4653-AFC8-815C15C144B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743C625A-9E45-4653-AFC8-815C15C144B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743C625A-9E45-4653-AFC8-815C15C144B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743C625A-9E45-4653-AFC8-815C15C144B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBC20F1-4672-47C5-91BD-F00F4AE24259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBC20F1-4672-47C5-91BD-F00F4AE24259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBC20F1-4672-47C5-91BD-F00F4AE24259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBC20F1-4672-47C5-91BD-F00F4AE24259}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {468A08B8-D042-4CD4-89AE-D6EF074B311C}
+	EndGlobalSection
+EndGlobal

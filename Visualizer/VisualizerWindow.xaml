@@ -1,0 +1,25 @@
+﻿<Window x:Class="EnumerableVisualizer.VisualizerWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:my="clr-namespace:EnumerableVisualizer" 
+        Title="Enumerable Visualizer Core" 
+        HorizontalAlignment="Center" 
+        VerticalAlignment="Center" SizeToContent="WidthAndHeight"
+        Height="150"
+        WindowStartupLocation="CenterScreen">
+    <!--<my:VisualizerDataControl x:Name="visualizerDataControl"/>-->
+    <Grid>
+        <DockPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Reset" />
+                    <Button Content="Export to Excel" />
+                    <Button Content="Search" />
+                    <TextBox Text="Search text" Height="19" TextWrapping="Wrap" Margin="0,0,0,0" Width="109" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Content="Clear" />
+                </StackPanel>
+                <DataGrid x:Name="JsonTable" MinHeight="100" Height="Auto" Width="Auto"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>
