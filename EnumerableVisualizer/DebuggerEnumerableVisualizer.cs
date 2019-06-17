@@ -674,52 +674,22 @@ using System.Xml.XPath;
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(DataTable), Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(SqlErrorCollection), Description = DebuggerEnumerableVisualizer.Description)]
 [assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(SqlParameterCollection), Description = DebuggerEnumerableVisualizer.Description)]
-//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), TargetTypeName = "Oracle.DataAccess.Client.OracleParameterCollection, Oracle.DataAccess.Client", Description = DebuggerEnumerableVisualizer.Description)]
-[assembly: DebuggerVisualizer(typeof(StringVisualizer), typeof(VisualizerObjectSource), Target = typeof(System.String), Description = "My String Visualizer")]
 
-//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(List<>), Description = DebuggerEnumerableVisualizer.Description)]
-//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(Array), Description = DebuggerEnumerableVisualizer.Description)]
-//[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource), Target = typeof(ArrayList), Description = DebuggerEnumerableVisualizer.Description)]
+[assembly: DebuggerVisualizer(typeof(DebuggerEnumerableVisualizer), typeof(VisualizerObjectSource), Target = typeof(System.String), Description = "String Core Visualizer")]
+
 namespace CodeCapital.EnumerableVisualizer
 {
-    public class StringVisualizer : DialogDebuggerVisualizer
-    {
-        protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
-        {
-            Console.WriteLine("Some Text Version 1");
-            Trace.Write("Aaaaa Text Version 1");
-        }
-
-        public static void TestShowVisualizer(object objectToVisualize)
-        {
-            //var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer));
-            var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(StringVisualizer), typeof(EnumerableObjectSource));
-
-            visualizerHost.ShowVisualizer();
-        }
-    }
-
     public class DebuggerEnumerableVisualizer : DialogDebuggerVisualizer
     {
-        public const string Description = "Enumerable Visualizer 1.2";
+        public const string Description = "EnumerableVisualizer Core";
 
         protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
         {
-            Trace.Write(Description);
+            if (windowService == null) { throw new ArgumentNullException(nameof(windowService)); }
 
-            try
-            {
-                ShowVisualizer(objectProvider);
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Exception getting object data: " + ex.Message);
-            }
-        }
+            FrameworkCompatibilityPreferences.AreInactiveSelectionHighlightBrushKeysSupported = false;
 
-        private static void ShowVisualizer(IVisualizerObjectProvider objectProvider)
-        {
-            Trace.WriteLine("Hello Update 3");
+            //Debugger.Launch();
 
             var dataStream = objectProvider.GetData();
 
@@ -728,35 +698,75 @@ namespace CodeCapital.EnumerableVisualizer
                 MessageBox.Show(streamReader.ReadToEnd());
             }
 
-            if (dataStream != null && dataStream.Length > 0)
-            {
-                var dataTable = JsonHelper.Deserialize(dataStream);
-
-                ShowVisualizerForm(dataTable);
-            }
-            else
-            {
-                ShowVisualizerForm(null);
-            }
-        }
-
-        private static void ShowVisualizerForm(DataTable data)
-        {
             var window = new VisualizerWindow();
+            //var control = window.Content as VisualizerDataControl;
+            //control.ObjectProvider = objectProvider;
+            //control.Options = new VisualizerDataOptions() { Formatter = CSharp };
 
             window.ShowDialog();
-
-            //var form = new VisualizerForm(data);
-
-            //form.ShowDialog();
-        }
-
-        public static void TestShowVisualizer(object objectToVisualize)
-        {
-            //var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer));
-            var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource));
-
-            visualizerHost.ShowVisualizer();
         }
     }
 }
+//    public class DebuggerEnumerableVisualizer : DialogDebuggerVisualizer
+//    {
+//        public const string Description = "Enumerable Visualizer Core";
+
+//        protected override void Show(IDialogVisualizerService windowService, IVisualizerObjectProvider objectProvider)
+//        {
+//            try
+//            {
+//                ShowVisualizer(objectProvider);
+//            }
+//            catch (Exception ex)
+//            {
+//                //MessageBox.Show("Exception getting object data: " + ex.Message);
+//            }
+//        }
+
+//        private static void ShowVisualizer(IVisualizerObjectProvider objectProvider)
+//        {
+//            MessageBox.Show("1");
+
+//            var dataStream = objectProvider.GetData();
+
+//            MessageBox.Show("2");
+
+//            using (var streamReader = new StreamReader(dataStream))
+//            {
+//                MessageBox.Show(streamReader.ReadToEnd());
+//            }
+
+//            ShowVisualizerForm(null);
+
+//            //if (dataStream != null && dataStream.Length > 0)
+//            //{
+//            //    var dataTable = JsonHelper.Deserialize(dataStream);
+
+//            //    ShowVisualizerForm(dataTable);
+//            //}
+//            //else
+//            //{
+//            //    ShowVisualizerForm(null);
+//            //}
+//        }
+
+//        private static void ShowVisualizerForm(DataTable data)
+//        {
+//            var window = new VisualizerWindow();
+
+//            window.ShowDialog();
+
+//            //var form = new VisualizerForm(data);
+
+//            //form.ShowDialog();
+//        }
+
+//        public static void TestShowVisualizer(object objectToVisualize)
+//        {
+//            //var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerVisualizer));
+//            var visualizerHost = new VisualizerDevelopmentHost(objectToVisualize, typeof(DebuggerEnumerableVisualizer), typeof(EnumerableObjectSource));
+
+//            visualizerHost.ShowVisualizer();
+//        }
+//    }
+//}

@@ -35,15 +35,13 @@
     <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.DebuggerVisualizers.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,7 +64,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="VisualizerWindow.xaml">
@@ -74,10 +71,21 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.6.0-preview5.19224.8</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>4.6.0-preview6.19303.8</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.6.0-preview.18571.3</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)CodeCapital.EnumerableVisualizer.dll" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\CodeCapital.EnumerableVisualizer.dll"
-copy "$(TargetDir)CodeCapital.EnumerableVisualizer.pdb" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\CodeCapital.EnumerableVisualizer.pdb"
-copy "$(TargetDir)Newtonsoft.Json.dll" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\Newtonsoft.Json.dll"</PostBuildEvent>
+    <PostBuildEvent>rem copy "$(TargetDir)CodeCapital.EnumerableVisualizer.dll" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\CodeCapital.EnumerableVisualizer.dll"
+rem copy "$(TargetDir)CodeCapital.EnumerableVisualizer.pdb" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\CodeCapital.EnumerableVisualizer.pdb"
+rem copy "$(TargetDir)Newtonsoft.Json.dll" "$(USERPROFILE)\Documents\Visual Studio 2019\Visualizers\Newtonsoft.Json.dll"</PostBuildEvent>
   </PropertyGroup>
 </Project>
