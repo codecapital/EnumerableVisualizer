@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using JsonSerializer = System.Text.Json.Serialization.JsonSerializer;
@@ -43,7 +44,11 @@ namespace EnumerableVisualizer
                 //System.Text.Encoding.Unicode.GetBytes(text);
                 //return Encoding.ASCII.GetBytes(System.Text.Json.Serialization.JsonSerializer.ToString(_Object));
 
-                return JsonSerializer.ToUtf8Bytes(_Object);
+                return JsonSerializer.ToUtf8Bytes(_Object, new JsonSerializerOptions
+                {
+                    IgnoreNullValues = true,
+                    AllowTrailingCommas = true
+                });
 
                 Console.WriteLine("c2-5");
 
