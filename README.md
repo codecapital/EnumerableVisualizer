@@ -1,7 +1,7 @@
 # EnumerableVisualizer
 Visual Studio Debugger Enumerable Visualizer without any [Serialize] attribute, using Json. Works only with .NET.
 
-**This is now inbuilt in Visual Studio 2022 from version 17.3 and so this project is deprecated.**
+**This is now inbuilt in Visual Studio 2022 from version 17.2 and so this project is deprecated.**
 
 *The .NET Core support might come with [Visual Studio 2019](https://developercommunity.visualstudio.com/content/idea/351618/custom-debugger-visualizer-for-net-core-apps-in-vs.html)*.
 
